@@ -1,6 +1,6 @@
 defmodule LogisticMap do
 
-  @logistic_map_size      0x200000
+  @logistic_map_size      0x500000
   @default_prime 6_700_417
   @default_mu 22
   @default_loop 10
