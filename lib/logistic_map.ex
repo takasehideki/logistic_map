@@ -428,7 +428,8 @@ defmodule LogisticMap do
   Benchmarks
   """
   def benchmarks3() do
-    [1, 2, 4, 8, 16, 32, 64, 128]
+    #[1, 2, 4, 8, 16, 32, 64, 128]
+    [1, 2, 4, 8, 16]
     |> Enum.map(& benchmark3(&1))
     |> Enum.reduce(0, fn _lst, acc -> acc end)
   end
@@ -475,7 +476,8 @@ defmodule LogisticMap do
   Benchmarks
   """
   def benchmarks8() do
-    [1, 2, 4, 8, 16, 32, 64, 128]
+    #[1, 2, 4, 8, 16, 32, 64, 128]
+    [1, 2, 4, 8, 16]
     |> Enum.map(& benchmark8(&1))
     |> Enum.reduce(0, fn _lst, acc -> acc end)
   end
@@ -484,13 +486,13 @@ defmodule LogisticMap do
     LogisticMapNif.init
 
     [
-     {&benchmarks1/0, "benchmarks1: pure Elixir(loop)"},
-     {&benchmarks2/0, "benchmarks2: pure Elixir(inlining outside of Flow.map)"},
+     #{&benchmarks1/0, "benchmarks1: pure Elixir(loop)"},
+     #{&benchmarks2/0, "benchmarks2: pure Elixir(inlining outside of Flow.map)"},
      {&benchmarks3/0, "benchmarks3: pure Elixir(inlining inside of Flow.map)"},
-     {&benchmarks4/0, "benchmarks4: pure Elixir(loop: variation)"},
-     {&benchmarks5/0, "benchmarks5: Rustler loop, passing by list"},
-     {&benchmarks6/0, "benchmarks6: Rustler loop, passing by binary created by Elixir"},
-     {&benchmarks7/0, "benchmarks7: Rustler loop, passing by binary created by Rustler"},
+     #{&benchmarks4/0, "benchmarks4: pure Elixir(loop: variation)"},
+     #{&benchmarks5/0, "benchmarks5: Rustler loop, passing by list"},
+     #{&benchmarks6/0, "benchmarks6: Rustler loop, passing by binary created by Elixir"},
+     #{&benchmarks7/0, "benchmarks7: Rustler loop, passing by binary created by Rustler"},
      {&benchmarks8/0, "benchmarks8: Rustler loop, passing by list, with Window"}]
     |> Enum.map(fn (x) ->
       IO.puts elem(x, 1)
