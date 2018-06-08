@@ -1,6 +1,6 @@
 defmodule LogisticMap do
 
-  @logistic_map_size      0x2000000
+  @logistic_map_size      0x200000
   @default_prime 6_700_417
   @default_mu 22
   @default_loop 10
@@ -429,7 +429,7 @@ defmodule LogisticMap do
   """
   def benchmarks3() do
     #[1, 2, 4, 8, 16, 32, 64, 128]
-    [1, 2, 4, 8]
+    [1, 2, 4, 8, 16]
     |> Enum.map(& benchmark3(&1))
     |> Enum.reduce(0, fn _lst, acc -> acc end)
   end
@@ -477,7 +477,7 @@ defmodule LogisticMap do
   """
   def benchmarks8() do
     #[1, 2, 4, 8, 16, 32, 64, 128]
-    [1, 2, 4, 8]
+    [1, 2, 4, 8, 16]
     |> Enum.map(& benchmark8(&1))
     |> Enum.reduce(0, fn _lst, acc -> acc end)
   end
